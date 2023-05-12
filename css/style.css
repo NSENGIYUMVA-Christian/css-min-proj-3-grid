@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  display:grid;
+  grid-template-columns: repeat(9,1fr);
+  grid-auto-rows: 50px auto 50px;
+  /* naming our grids, hd: header, mn:main,sb:sidebar,ft:footer */
+  grid-template-areas: "hd hd hd hd hd hd hd hd hd"
+                      "mn mn mn mn mn mn mn sb sb"
+                      "ft ft ft ft ft ft ft ft ft"
+                         ;
+  gap:1rem
+}
+
+.el {
+  background:rebeccapurple;
+  color:white;
+  display:grid;
+  place-content: center;
+}
+
+.header{
+  grid-area:hd
+}
+.sidebar{
+  grid-area:sb;
+  background-color: blue;
+}
+.footer{
+  grid-area:ft
+}
+
+
+.container {
+  grid-area:mn;
+  display:grid;
+  /* this provides equal grid columns */
+  /* grid-auto-flow: column; */
+  /* control grid column */
+  /* grid-template-columns: 1fr 2fr 1fr; */
+
+  /* repeat(numberOfColumn, fraction) */
+  grid-template-columns: repeat(2,1fr 2fr);
+
+  /* defining rows size */
+  grid-auto-rows: minmax(100px,auto);
+gap: 0.5rem;
+
+}
+
+.box {
+  background-color: #000;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+
+.box:first-child{
+  background-color: blue;
+  /* this spans 3 columns */
+  /* grid-column-start: 1;
+  grid-column-end: 4; */
+ /* short hand of column start and end */
+  grid-column: 1/4;
+
+  /* spans rows */
+  /* grid-row-start: 1;
+  grid-row-end: 3; */
+  /* short hand for grid row start and end */
+  grid-row: 1/3;
+
+  /* controlling single item */
+  display:grid;
+  /* justify-content: center;
+  align-items: center; */
+  /* the short hand of justify and align is place content, first val is align, second is just */
+  place-content: center center;
+}
+
+.box:nth-child(2){
+  background-color: purple;
+  grid-column: 1/5;
+  grid-row:3/4
+}
+
+
+
+
+
